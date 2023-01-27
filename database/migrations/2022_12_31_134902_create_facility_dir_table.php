@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateFacilityDirTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('facility_dir', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('product_code');
-            $table->string('product_name');
-            $table->integer('quantity');
-            $table->integer('order_status');
+            $table->bigInteger('facility_code');
+            $table->foreign('facility_code')->references('facility_code')->on('facility_information');
+            $table->string('dir_path');
+            $table->string('comparison')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('facility_dir');
     }
 }

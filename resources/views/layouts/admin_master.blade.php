@@ -54,7 +54,7 @@
                             </a>
                             <div class="collapse" id="collapseAnnouncement" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">List of Announcement</a>
+                                    <a class="nav-link" href="/announcement">List of Announcement</a>
                                 </nav>
                             </div>
                             
@@ -65,7 +65,7 @@
                             </a>
                             <div class="collapse" id="collapseFacilty" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">List of Facility Information</a>
+                                    <a class="nav-link" href="/facilityInformation">List of Facility Information</a>
                                 </nav>
                             </div>
 
@@ -76,7 +76,7 @@
                             </a>
                             <div class="collapse" id="collapseStock" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">List of Stock Information</a>
+                                    <a class="nav-link" href="/stockInformation">List of Stock Information</a>
                                 </nav>
                             </div>
 
@@ -87,8 +87,8 @@
                             </a>
                             <div class="collapse" id="collapseAuthentication" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">List of Stock Auction</a>
-                                    <a class="nav-link" href="#">Stock Auction Calendar</a>
+                                    <a class="nav-link" href="/auctionList">List of Stock Auction</a>
+                                    {{-- <a class="nav-link" href="#">Stock Auction Calendar</a> --}}
                                 </nav>
                             </div>
                         </div>
