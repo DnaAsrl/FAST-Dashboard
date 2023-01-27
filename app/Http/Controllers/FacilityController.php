@@ -14,5 +14,32 @@ class FacilityController extends Controller
     	return view('facility_information',compact('facilities'));
     }
 
+    public function maturity(Request $request){
+
+        $date = $request->get('date');
+        
+        $facilities = DB::table('facility_information')->whereRaw("maturity_date like '".$date."'");
+
+        foreach ($facilities->get() as $facility){
+            try {
+                DB::table('facility_matured')->insert(
+                    array(
+                        'facility_code' => $facility->facility_code,
+                        'principle' => $facility->principle,
+                        'instrument_id' => $facility->instrument_id,
+                        'maturity_date' => $facility->maturity_date,
+                    )
+                );
+            }
+            catch (\Exception $e){
+                continue;
+            }
+
+        }
+
+        $facility_codes = $facilities->select('facility_code')->get();
+
+        return $facility_codes;
+    }
     
 }

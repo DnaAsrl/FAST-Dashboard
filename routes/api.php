@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\StockController;
+use App\Http\Controllers\AuctionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -74,6 +78,8 @@ Route::get('/announcements/{embargo_date}', function($embargo_date){
 
 // });
 
-Route::post('/stock/{maturity_date}', [StockController::class,'index']);
+// maturity date
 
-Route::post('/facility/{maturity_date}', [FacilityController::class,'index']);
+Route::post('/stock/matured', [StockController::class,'maturity']);
+
+Route::post('/facility/matured', [FacilityController::class,'maturity']);
