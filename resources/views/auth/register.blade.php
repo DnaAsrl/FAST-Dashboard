@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inventory-Management-System</title>
+    <title>FAST Scraper Dashboard</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{{ asset('frontend') }}/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -21,27 +21,33 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form method="POST" action="{{ route('register') }}" class="register-form" id="register-form">
+                        <form method="POST" action="{{ route('register.custom') }}" class="register-form" id="register-form">
                             @csrf
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name" required=""/>
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="Name" id="name" class="form-control" name="name"
+                                    required autofocus>
+                                @if ($errors->has('name'))
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email" required=""/>
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="Email" id="email_address" class="form-control"
+                                    name="email" required autofocus>
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="Password" required=""/>
+                            <div class="form-group mb-3">
+                                <input type="password" placeholder="Password" id="password" class="form-control"
+                                    name="password" required>
+                                @if ($errors->has('password'))
+                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm your password" required=""/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            <div class="form-group mb-3">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="remember"> Remember Me</label>
+                                </div>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
